@@ -1,5 +1,5 @@
 # Dependencias
-FROM node:20.11.1-alpine3.19 as deps
+FROM node:21-alpine3.19 as deps
 
 WORKDIR /usr/src/app
 
@@ -10,7 +10,7 @@ RUN npm install
 
 # Builder - Construye la aplicación
 
-FROM node:20.11.1-alpine3.19 as build
+FROM node:21-alpine3.19 as build
 
 WORKDIR /usr/src/app
 
@@ -29,7 +29,7 @@ RUN npx prisma generate
 
 # Crear la imagen final de Docker
 
-FROM node:20.11.1-alpine3.19 as prod
+FROM node:21-alpine3.19 as prod
 
 WORKDIR /usr/src/app
 
